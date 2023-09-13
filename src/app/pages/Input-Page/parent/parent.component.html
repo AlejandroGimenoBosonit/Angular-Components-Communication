@@ -1,0 +1,28 @@
+<h2>Comunication Task</h2>
+<div class="grid">
+  <div class="col">
+    <p-fieldset legend="Parent" [toggleable]="false" class="">
+      <!-- print messaage -->
+      <p>
+        message: <strong> {{ childMssg }} </strong>
+      </p>
+      <!-- Buttons -->
+      <div class="flex xl:flex-row md:flex-row sm:flex-column">
+        <button
+          pButton
+          class="flex flex-1 align-items-center justify-content-center m-2"
+          label="Use Service"
+          (click)="useInput()"
+        ></button>
+      </div>
+
+      <!-- child fieldset -->
+      <!-- sending by input a message form parent to child -->
+      <app-child-input
+        [mssgFromParent]="parentMssg"
+        (mssgFromChild)="getMssgFromChild($event)"
+      ></app-child-input>
+    </p-fieldset>
+  </div>
+</div>
+
